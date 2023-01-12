@@ -1,4 +1,16 @@
 {
   "name": "ultimate-node-project",
-  "packageManager": "yarn@4.0.0-rc.35"
+  "version": "1.0.0",
+  "main": "index.js",
+  "volta": {
+    "node": "17.9.1",
+    "yarn": "1.22.19"
+  },
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.11.18"
+  }
 }
