@@ -1,0 +1,15 @@
+# Specify the version of docker-compose
+version: '2' # It matches local version of our docker compose
+
+services:
+  backend:
+    build: ./ # Rather than loading an image. We, are looking to build an image using our Docker File
+    ports:
+      - 8000:8000 # Mapped docker port 8000(left-side) to our local port 8000 (right-side)
+      - 9229:9229 # Default debugger port
+    volumes:
+      - .:/usr/share/app # Mount the local src folder with our docker src to quick keep track of changes.
+      - /usr/share/app/node_modules # Making sure only docker uses it own node modules and not shares with host machine.
+    command: yarn start:docker
+    environment:
+      PORT: 8000
