@@ -8,6 +8,10 @@ WORKDIR /usr/share/app
 COPY package.json yarn.lock ./
 RUN yarn install
 
+# Copy prisma schema & generate prisma client
+COPY prisma/schema.prisma ./prisma/
+RUN npx prisma generate
+
 # COPY Everything from our application to image app
 COPY . .
 
